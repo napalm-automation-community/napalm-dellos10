@@ -1,0 +1,25 @@
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+sudo: false
+language: python
+python:
+- 2.7
+- 3.4
+- 3.5
+- 3.6
+install:
+- pip install -r requirements-dev.txt
+- pip install -r requirements.txt
+- pip install .
+deploy:
+  provider: pypi
+  user: javeedf
+  password: $PYPI_PASS
+  on:
+    tags: true
+    branch: dellos10_device_support
+script:
+- py.test
+- pylama .
