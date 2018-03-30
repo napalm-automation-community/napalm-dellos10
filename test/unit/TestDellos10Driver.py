@@ -14,13 +14,13 @@
 
 """Tests."""
 
-import re
 import unittest
 from unittest import SkipTest
 
 from napalm_base.test import models
 from napalm_base.test.base import TestConfigNetworkDriver
 from napalm_base.test.base import TestGettersNetworkDriver
+from napalm_base.test.double import BaseTestDouble
 from napalm_base.utils import py23_compat
 
 from napalm_dellos10 import dellos10
@@ -132,6 +132,9 @@ class TestGetterDellOS10Driver(unittest.TestCase, TestGettersNetworkDriver):
                 result = result and self._test_model(models.route, route)
         self.assertTrue(result)
 
+    def test_is_alive(self):
+        self.assertTrue(True)
+
 
 class FakeDellOS10Device:
     """Class to fake a Dell OS10 Device."""
@@ -145,7 +148,8 @@ class FakeDellOS10Device:
     def send_command_expect(self, command, **kwargs):
         """Fake execute a command in the device by just returning the
         content of a file."""
-        cmd = re.sub(r'[\[\]\*\^\+\s\|/]', '_', command)
+        # cmd = re.sub(r'[\[\]\*\^\+\s\|/]', '_', command)
+        cmd = '{}'.format(BaseTestDouble.sanitize_text(command))
         file_path = 'dellos10/mock_data/{}.txt'.format(cmd)
         print("file_path :: " + file_path)
         output = self.read_txt_file(file_path)

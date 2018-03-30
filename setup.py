@@ -2,8 +2,10 @@
 
 import uuid
 
-from setuptools import setup, find_packages
 from pip.req import parse_requirements
+
+from setuptools import find_packages, setup
+
 
 __author__ = 'Mohamed Javeed <javeedf.dev@gmail.com>'
 

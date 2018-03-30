@@ -992,7 +992,7 @@ class DellOS10Driver(NetworkDriver):
                     "nhs": self.UNKNOWN_BOOL
                 }
             }
-            print(remote_address)
+
             if not associated_template:
                 associated_template = "_"
 
