@@ -1,0 +1,3 @@
+{
+  "mgmt1/1/1": {"ipv4": {"10.16.138.23": {"prefix_length": 24}}}, "ethernet1/1/2": {"ipv6": {"2001:db8:1::1": {"prefix_length": 24}, "2201:db8:1::1": {"prefix_length": 24}}}, "ethernet1/1/1": {"ipv4": {"12.1.1.1": {"prefix_length": 24}}, "ipv6": {"1::1": {"prefix_length": 24}}}
+}

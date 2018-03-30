@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rpc-reply>
+  <data>
+    <system-state>
+      <system-status>
+        <hostname>OS10</hostname>
+        <uptime>1925299</uptime>
+        <date-time>2018-01-31T13:02:44.10+00:00</date-time>
+        <boot-datetime>2018-01-09T06:14:25+00:00</boot-datetime>
+      </system-status>
+    </system-state>
+    <system-sw-state>
+      <sw-version>
+        <sw-version>10.3.9999E</sw-version>
+        <sw-name>OS10-Enterprise</sw-name>
+        <sw-name-long>Dell EMC Networking OS10-Enterprise</sw-name-long>
+        <sw-platform>S6000-VM</sw-platform>
+        <sw-platform-long>Dell EMC OS10 Enterprise Edition Blueprint 1.0.0</sw-platform-long>
+        <cpu-arch>x86_64</cpu-arch>
+        <sw-build-date>2017-12-27T06:06:03-0800</sw-build-date>
+        <sw-build-version>10.3.9999E(6297)</sw-build-version>
+        <copyright>Copyright (c) 1999-2017 by Dell Inc. All Rights Reserved.</copyright>
+      </sw-version>
+    </system-sw-state>
+  </data>
+</rpc-reply>
+os10#!

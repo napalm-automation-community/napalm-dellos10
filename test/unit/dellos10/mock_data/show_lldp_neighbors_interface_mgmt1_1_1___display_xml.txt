@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rpc-reply>
+  <data>
+    <global-params>
+      <enable>true</enable>
+      <tx-interval>30</tx-interval>
+      <txhold-multiplier>4</txhold-multiplier>
+      <reinit-delay>2</reinit-delay>
+      <tx-delay>2</tx-delay>
+      <v1-notification-delay>5</v1-notification-delay>
+      <v2-notification-delay>5</v2-notification-delay>
+      <v2-tx-credit-max>5</v2-tx-credit-max>
+      <v2-message-fast-tx>1</v2-message-fast-tx>
+      <v2-tx-fast-init>4</v2-tx-fast-init>
+    </global-params>
+    <interfaces-state>
+      <interface>
+        <name>mgmt1/1/1</name>
+        <lldp-rem-neighbor-info>
+          <info>
+            <rem-lldp-time-mark>6200</rem-lldp-time-mark>
+            <rem-lldp-index>1</rem-lldp-index>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-if-index>35454736</rem-if-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-lldp-chassis-id>AFBWvpIs
+</rem-lldp-chassis-id>
+            <rem-lldp-port-id>bWdtdDEvMS8x
+</rem-lldp-port-id>
+            <rem-lldp-chassis-id-subtype>mac-address</rem-lldp-chassis-id-subtype>
+            <rem-lldp-port-subtype>interface-name</rem-lldp-port-subtype>
+            <rem-ttl>120</rem-ttl>
+            <rem-last-update-time>2323882</rem-last-update-time>
+            <rem-info-valid-time>114</rem-info-valid-time>
+            <rem-system-desc>OS10</rem-system-desc>
+            <rem-port-desc>mgmt1/1/1</rem-port-desc>
+            <rem-system-name>devops</rem-system-name>
+            <rem-max-frame-size>0</rem-max-frame-size>
+            <rem-agg-link-status>false</rem-agg-link-status>
+            <rem-sys-cap-supported>router bridge repeater</rem-sys-cap-supported>
+            <rem-sys-cap-enabled>router bridge repeater</rem-sys-cap-enabled>
+            <rem-remote-changes>false</rem-remote-changes>
+            <rem-too-many-neighbors>false</rem-too-many-neighbors>
+            <rem-dot3-auto-neg-supported>false</rem-dot3-auto-neg-supported>
+            <rem-dot3-auto-neg-enabled>false</rem-dot3-auto-neg-enabled>
+            <rem-dot3-auto-neg-adv-cap/>
+          </info>
+          <info>
+            <rem-lldp-time-mark>6200</rem-lldp-time-mark>
+            <rem-lldp-index>2</rem-lldp-index>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-if-index>35454736</rem-if-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-lldp-chassis-id>AFBWvoso
+</rem-lldp-chassis-id>
+            <rem-lldp-port-id>bWdtdDEvMS8x
+</rem-lldp-port-id>
+            <rem-lldp-chassis-id-subtype>mac-address</rem-lldp-chassis-id-subtype>
+            <rem-lldp-port-subtype>interface-name</rem-lldp-port-subtype>
+            <rem-ttl>120</rem-ttl>
+            <rem-last-update-time>2323882</rem-last-update-time>
+            <rem-info-valid-time>114</rem-info-valid-time>
+            <rem-system-desc>OS10</rem-system-desc>
+            <rem-port-desc>mgmt1/1/1</rem-port-desc>
+            <rem-system-name>OS10</rem-system-name>
+            <rem-max-frame-size>0</rem-max-frame-size>
+            <rem-agg-link-status>false</rem-agg-link-status>
+            <rem-sys-cap-supported>router bridge repeater</rem-sys-cap-supported>
+            <rem-sys-cap-enabled>router bridge repeater</rem-sys-cap-enabled>
+            <rem-remote-changes>false</rem-remote-changes>
+            <rem-too-many-neighbors>false</rem-too-many-neighbors>
+            <rem-dot3-auto-neg-supported>false</rem-dot3-auto-neg-supported>
+            <rem-dot3-auto-neg-enabled>false</rem-dot3-auto-neg-enabled>
+            <rem-dot3-auto-neg-adv-cap/>
+          </info>
+          <info>
+            <rem-lldp-time-mark>6200</rem-lldp-time-mark>
+            <rem-lldp-index>3</rem-lldp-index>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-if-index>35454736</rem-if-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-lldp-chassis-id>AFBWvlez
+</rem-lldp-chassis-id>
+            <rem-lldp-port-id>bWdtdDEvMS8x
+</rem-lldp-port-id>
+            <rem-lldp-chassis-id-subtype>mac-address</rem-lldp-chassis-id-subtype>
+            <rem-lldp-port-subtype>interface-name</rem-lldp-port-subtype>
+            <rem-ttl>120</rem-ttl>
+            <rem-last-update-time>2323882</rem-last-update-time>
+            <rem-info-valid-time>117</rem-info-valid-time>
+            <rem-system-desc>OS10</rem-system-desc>
+            <rem-port-desc>mgmt1/1/1</rem-port-desc>
+            <rem-system-name>OS10</rem-system-name>
+            <rem-max-frame-size>0</rem-max-frame-size>
+            <rem-agg-link-status>false</rem-agg-link-status>
+            <rem-sys-cap-supported>router bridge repeater</rem-sys-cap-supported>
+            <rem-sys-cap-enabled>router bridge repeater</rem-sys-cap-enabled>
+            <rem-remote-changes>false</rem-remote-changes>
+            <rem-too-many-neighbors>false</rem-too-many-neighbors>
+            <rem-dot3-auto-neg-supported>false</rem-dot3-auto-neg-supported>
+            <rem-dot3-auto-neg-enabled>false</rem-dot3-auto-neg-enabled>
+            <rem-dot3-auto-neg-adv-cap/>
+          </info>
+          <info>
+            <rem-lldp-time-mark>6300</rem-lldp-time-mark>
+            <rem-lldp-index>4</rem-lldp-index>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-if-index>35454736</rem-if-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-lldp-chassis-id>kLEc9Cw0
+</rem-lldp-chassis-id>
+            <rem-lldp-port-id>VGVuR2lnYWJpdEV0aGVybmV0IDAvMw==
+</rem-lldp-port-id>
+            <rem-lldp-chassis-id-subtype>mac-address</rem-lldp-chassis-id-subtype>
+            <rem-lldp-port-subtype>interface-name</rem-lldp-port-subtype>
+            <rem-ttl>20</rem-ttl>
+            <rem-last-update-time>2323881</rem-last-update-time>
+            <rem-info-valid-time>17</rem-info-valid-time>
+            <rem-system-desc>Dell Real Time Operating System Software. Dell Operating System Version: 2.0. Dell Application Software Version: 9-11(2-40) Copyright (c) 1999-2017Dell Inc. All Rights Reserved.Build Time: Mon Apr 24 23:58:46 2017</rem-system-desc>
+            <rem-port-desc>TenGigabitEthernet 0/3</rem-port-desc>
+            <rem-system-name>swlab1-maa-tor-J7</rem-system-name>
+            <rem-port-vlan-id>138</rem-port-vlan-id>
+            <rem-max-frame-size>0</rem-max-frame-size>
+            <rem-agg-link-status>false</rem-agg-link-status>
+            <rem-sys-cap-supported>router bridge repeater</rem-sys-cap-supported>
+            <rem-sys-cap-enabled>router bridge repeater</rem-sys-cap-enabled>
+            <rem-remote-changes>false</rem-remote-changes>
+            <rem-too-many-neighbors>false</rem-too-many-neighbors>
+            <rem-dot3-auto-neg-supported>false</rem-dot3-auto-neg-supported>
+            <rem-dot3-auto-neg-enabled>false</rem-dot3-auto-neg-enabled>
+            <rem-dot3-auto-neg-adv-cap/>
+          </info>
+          <info>
+            <rem-lldp-time-mark>27628500</rem-lldp-time-mark>
+            <rem-lldp-index>6</rem-lldp-index>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-if-index>35454736</rem-if-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-lldp-chassis-id>AFBWvsdY
+</rem-lldp-chassis-id>
+            <rem-lldp-port-id>bWdtdDEvMS8x
+</rem-lldp-port-id>
+            <rem-lldp-chassis-id-subtype>mac-address</rem-lldp-chassis-id-subtype>
+            <rem-lldp-port-subtype>interface-alias</rem-lldp-port-subtype>
+            <rem-ttl>120</rem-ttl>
+            <rem-last-update-time>2047659</rem-last-update-time>
+            <rem-info-valid-time>117</rem-info-valid-time>
+            <rem-system-desc>OS10</rem-system-desc>
+            <rem-port-desc>mgmt1/1/1</rem-port-desc>
+            <rem-system-name>OS10</rem-system-name>
+            <rem-max-frame-size>0</rem-max-frame-size>
+            <rem-agg-link-status>false</rem-agg-link-status>
+            <rem-sys-cap-supported>router bridge repeater</rem-sys-cap-supported>
+            <rem-sys-cap-enabled>router bridge repeater</rem-sys-cap-enabled>
+            <rem-remote-changes>true</rem-remote-changes>
+            <rem-too-many-neighbors>false</rem-too-many-neighbors>
+            <rem-dot3-auto-neg-supported>false</rem-dot3-auto-neg-supported>
+            <rem-dot3-auto-neg-enabled>false</rem-dot3-auto-neg-enabled>
+            <rem-dot3-auto-neg-adv-cap/>
+          </info>
+          <info>
+            <rem-lldp-time-mark>140027500</rem-lldp-time-mark>
+            <rem-lldp-index>7</rem-lldp-index>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-if-index>35454736</rem-if-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-lldp-chassis-id>AFBWvglN
+</rem-lldp-chassis-id>
+            <rem-lldp-port-id>bWdtdDEvMS8x
+</rem-lldp-port-id>
+            <rem-lldp-chassis-id-subtype>mac-address</rem-lldp-chassis-id-subtype>
+            <rem-lldp-port-subtype>interface-alias</rem-lldp-port-subtype>
+            <rem-ttl>120</rem-ttl>
+            <rem-last-update-time>923669</rem-last-update-time>
+            <rem-info-valid-time>115</rem-info-valid-time>
+            <rem-system-desc>OS10</rem-system-desc>
+            <rem-port-desc>mgmt1/1/1</rem-port-desc>
+            <rem-system-name>OS10</rem-system-name>
+            <rem-max-frame-size>0</rem-max-frame-size>
+            <rem-agg-link-status>false</rem-agg-link-status>
+            <rem-sys-cap-supported>router bridge repeater</rem-sys-cap-supported>
+            <rem-sys-cap-enabled>router bridge repeater</rem-sys-cap-enabled>
+            <rem-remote-changes>true</rem-remote-changes>
+            <rem-too-many-neighbors>false</rem-too-many-neighbors>
+            <rem-dot3-auto-neg-supported>false</rem-dot3-auto-neg-supported>
+            <rem-dot3-auto-neg-enabled>false</rem-dot3-auto-neg-enabled>
+            <rem-dot3-auto-neg-adv-cap/>
+          </info>
+          <info>
+            <rem-lldp-time-mark>200929400</rem-lldp-time-mark>
+            <rem-lldp-index>8</rem-lldp-index>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-if-index>35454736</rem-if-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-lldp-chassis-id>AFBWvsvA
+</rem-lldp-chassis-id>
+            <rem-lldp-port-id>AFBWvsvA
+</rem-lldp-port-id>
+            <rem-lldp-chassis-id-subtype>mac-address</rem-lldp-chassis-id-subtype>
+            <rem-lldp-port-subtype>mac-address</rem-lldp-port-subtype>
+            <rem-ttl>120</rem-ttl>
+            <rem-last-update-time>314650</rem-last-update-time>
+            <rem-info-valid-time>115</rem-info-valid-time>
+            <rem-system-desc>Debian GNU/Linux 8 (jessie) Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.43-2+deb8u2 (2017-06-14) x86_64</rem-system-desc>
+            <rem-port-desc>eth0</rem-port-desc>
+            <rem-system-name>OPX</rem-system-name>
+            <rem-max-frame-size>0</rem-max-frame-size>
+            <rem-agg-link-status>false</rem-agg-link-status>
+            <rem-sys-cap-supported>station-only router wlan-access-point bridge</rem-sys-cap-supported>
+            <rem-sys-cap-enabled>station-only router</rem-sys-cap-enabled>
+            <rem-remote-changes>true</rem-remote-changes>
+            <rem-too-many-neighbors>false</rem-too-many-neighbors>
+            <rem-dot3-auto-neg-supported>true</rem-dot3-auto-neg-supported>
+            <rem-dot3-auto-neg-enabled>true</rem-dot3-auto-neg-enabled>
+            <rem-dot3-auto-neg-adv-cap>b-other b-10base-t b-10base-t-fd b-100base-tx
+       b-100base-tx-fd b-1000base-t-fd</rem-dot3-auto-neg-adv-cap>
+          </info>
+        </lldp-rem-neighbor-info>
+        <rem-mgmt-addr>
+          <info>
+            <rem-time-mark>6200</rem-time-mark>
+            <rem-index>1</rem-index>
+            <rem-mgmt-addr-sub-type>ipV4</rem-mgmt-addr-sub-type>
+            <rem-mgmt-address>MTAuMTYuMTM4LjI3
+</rem-mgmt-address>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-local-if-index>35454736</rem-local-if-index>
+            <rem-mgmt-addr-if-subtype>if-index</rem-mgmt-addr-if-subtype>
+            <rem-mgmt-addr-if-id>35454736</rem-mgmt-addr-if-id>
+          </info>
+          <info>
+            <rem-time-mark>6200</rem-time-mark>
+            <rem-index>1</rem-index>
+            <rem-mgmt-addr-sub-type>ipV6</rem-mgmt-addr-sub-type>
+            <rem-mgmt-address>ZmU4MDo6MjUwOjU2ZmY6ZmViZTo5MjJj
+</rem-mgmt-address>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-local-if-index>35454736</rem-local-if-index>
+            <rem-mgmt-addr-if-subtype>if-index</rem-mgmt-addr-if-subtype>
+            <rem-mgmt-addr-if-id>35454736</rem-mgmt-addr-if-id>
+          </info>
+          <info>
+            <rem-time-mark>6200</rem-time-mark>
+            <rem-index>2</rem-index>
+            <rem-mgmt-addr-sub-type>ipV4</rem-mgmt-addr-sub-type>
+            <rem-mgmt-address>MTAuMTYuMTM4LjI0
+</rem-mgmt-address>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-local-if-index>35454736</rem-local-if-index>
+            <rem-mgmt-addr-if-subtype>if-index</rem-mgmt-addr-if-subtype>
+            <rem-mgmt-addr-if-id>35454736</rem-mgmt-addr-if-id>
+          </info>
+          <info>
+            <rem-time-mark>6200</rem-time-mark>
+            <rem-index>2</rem-index>
+            <rem-mgmt-addr-sub-type>ipV6</rem-mgmt-addr-sub-type>
+            <rem-mgmt-address>ZmU4MDo6MjUwOjU2ZmY6ZmViZTo4YjI4
+</rem-mgmt-address>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-local-if-index>35454736</rem-local-if-index>
+            <rem-mgmt-addr-if-subtype>if-index</rem-mgmt-addr-if-subtype>
+            <rem-mgmt-addr-if-id>35454736</rem-mgmt-addr-if-id>
+          </info>
+          <info>
+            <rem-time-mark>6200</rem-time-mark>
+            <rem-index>3</rem-index>
+            <rem-mgmt-addr-sub-type>ipV6</rem-mgmt-addr-sub-type>
+            <rem-mgmt-address>ZmU4MDo6MjUwOjU2ZmY6ZmViZTo1N2Iz
+</rem-mgmt-address>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-local-if-index>35454736</rem-local-if-index>
+            <rem-mgmt-addr-if-subtype>if-index</rem-mgmt-addr-if-subtype>
+            <rem-mgmt-addr-if-id>35454736</rem-mgmt-addr-if-id>
+          </info>
+          <info>
+            <rem-time-mark>27628500</rem-time-mark>
+            <rem-index>6</rem-index>
+            <rem-mgmt-addr-sub-type>ipV4</rem-mgmt-addr-sub-type>
+            <rem-mgmt-address>MTAuMTYuMTM4LjIw
+</rem-mgmt-address>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-local-if-index>35454736</rem-local-if-index>
+            <rem-mgmt-addr-if-subtype>if-index</rem-mgmt-addr-if-subtype>
+            <rem-mgmt-addr-if-id>35454736</rem-mgmt-addr-if-id>
+          </info>
+          <info>
+            <rem-time-mark>27628500</rem-time-mark>
+            <rem-index>6</rem-index>
+            <rem-mgmt-addr-sub-type>ipV6</rem-mgmt-addr-sub-type>
+            <rem-mgmt-address>ZmU4MDo6MjUwOjU2ZmY6ZmViZTpjNzU4
+</rem-mgmt-address>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-local-if-index>35454736</rem-local-if-index>
+            <rem-mgmt-addr-if-subtype>if-index</rem-mgmt-addr-if-subtype>
+            <rem-mgmt-addr-if-id>35454736</rem-mgmt-addr-if-id>
+          </info>
+          <info>
+            <rem-time-mark>140027500</rem-time-mark>
+            <rem-index>7</rem-index>
+            <rem-mgmt-addr-sub-type>ipV4</rem-mgmt-addr-sub-type>
+            <rem-mgmt-address>MTAuMTYuMTM4LjMw
+</rem-mgmt-address>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-local-if-index>35454736</rem-local-if-index>
+            <rem-mgmt-addr-if-subtype>if-index</rem-mgmt-addr-if-subtype>
+            <rem-mgmt-addr-if-id>35454736</rem-mgmt-addr-if-id>
+          </info>
+          <info>
+            <rem-time-mark>140027500</rem-time-mark>
+            <rem-index>7</rem-index>
+            <rem-mgmt-addr-sub-type>ipV6</rem-mgmt-addr-sub-type>
+            <rem-mgmt-address>ZmU4MDo6MjUwOjU2ZmY6ZmViZTo5NGQ=
+</rem-mgmt-address>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-local-if-index>35454736</rem-local-if-index>
+            <rem-mgmt-addr-if-subtype>if-index</rem-mgmt-addr-if-subtype>
+            <rem-mgmt-addr-if-id>35454736</rem-mgmt-addr-if-id>
+          </info>
+          <info>
+            <rem-time-mark>200929400</rem-time-mark>
+            <rem-index>8</rem-index>
+            <rem-mgmt-addr-sub-type>ipV4</rem-mgmt-addr-sub-type>
+            <rem-mgmt-address>MTAuMTYuMTM4Ljk=
+</rem-mgmt-address>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-local-if-index>35454736</rem-local-if-index>
+            <rem-mgmt-addr-if-subtype>if-index</rem-mgmt-addr-if-subtype>
+            <rem-mgmt-addr-if-id>2</rem-mgmt-addr-if-id>
+          </info>
+          <info>
+            <rem-time-mark>200929400</rem-time-mark>
+            <rem-index>8</rem-index>
+            <rem-mgmt-addr-sub-type>ipV6</rem-mgmt-addr-sub-type>
+            <rem-mgmt-address>ZmU4MDo6MjUwOjU2ZmY6ZmViZTpjYmMw
+</rem-mgmt-address>
+            <dest-mac-addr-index>1</dest-mac-addr-index>
+            <rem-local-port-num>4</rem-local-port-num>
+            <rem-local-if-index>35454736</rem-local-if-index>
+            <rem-mgmt-addr-if-subtype>if-index</rem-mgmt-addr-if-subtype>
+            <rem-mgmt-addr-if-id>2</rem-mgmt-addr-if-id>
+          </info>
+        </rem-mgmt-addr>
+      </interface>
+    </interfaces-state>
+    <interfaces-state>
+      <interface>
+        <name>mgmt1/1/1</name>
+        <lldp-med-remote-data>
+    </lldp-med-remote-data>
+      </interface>
+    </interfaces-state>
+  </data>
+</rpc-reply>

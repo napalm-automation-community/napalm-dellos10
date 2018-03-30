@@ -13,4 +13,13 @@
 # the License.
 
 """napalm-dellos10 package."""
-from dellos10 import Dellos10Driver
+import pkg_resources
+
+from napalm_dellos10.dellos10 import DellOS10Driver
+
+try:
+    __version__ = pkg_resources.get_distribution('napalm-dellos10').version
+except pkg_resources.DistributionNotFound:
+    __version__ = "Not installed"
+
+__all__ = ['DellOS10Driver']

@@ -1,0 +1,1 @@
+{"mgmt1/1/1": [{"hostname": "devops", "port": "mgmt1/1/1"}, {"hostname": "OS10", "port": "mgmt1/1/1"}, {"hostname": "OS10", "port": "mgmt1/1/1"}, {"hostname": "swlab1-maa-tor-J7", "port": "TenGigabitEthernet 0/3"}, {"hostname": "OS10", "port": "mgmt1/1/1"}, {"hostname": "OS10", "port": "mgmt1/1/1"}, {"hostname": "OPX", "port": "eth0"}]}
