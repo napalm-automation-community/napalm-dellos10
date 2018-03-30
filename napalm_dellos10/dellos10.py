@@ -1498,8 +1498,8 @@ class DellOS10Driver(NetworkDriver):
                     rem_sys_name = self.parse_item(lldp_rem_info_data,
                                                    'rem-system-name')
                     if rem_inf_name:
-                        rem_entry_dict["hostname"] = "" + rem_sys_name
-                        rem_entry_dict["port"] = "" + rem_inf_name
+                        rem_entry_dict["hostname"] = u"" + rem_sys_name
+                        rem_entry_dict["port"] = u"" + rem_inf_name
                         lldp_rem_entry_list.append(rem_entry_dict)
 
                 if lldp_rem_entry_list:
@@ -1574,13 +1574,13 @@ class DellOS10Driver(NetworkDriver):
                             remote_enable_capab):
         rem_entry_dict = {}
         rem_entry_dict["parent_interface"] = self.UNKNOWN
-        rem_entry_dict["remote_port"] = "" + remote_port
-        rem_entry_dict["remote_port_description"] = "" + remote_port
-        rem_entry_dict["remote_chassis_id"] = "" + remote_chassis_id
-        rem_entry_dict["remote_system_name"] = "" + remote_system_name
-        rem_entry_dict["remote_system_description"] = "" + remote_system_desc
-        rem_entry_dict["remote_system_capab"] = "" + remote_system_capab
-        rem_entry_dict["remote_system_enable_capab"] = "" + remote_enable_capab
+        rem_entry_dict["remote_port"] = u"" + remote_port
+        rem_entry_dict["remote_port_description"] = u"" + remote_port
+        rem_entry_dict["remote_chassis_id"] = u"" + remote_chassis_id
+        rem_entry_dict["remote_system_name"] = u"" + remote_system_name
+        rem_entry_dict["remote_system_description"] = u"" + remote_system_desc
+        rem_entry_dict["remote_system_capab"] = u"" + remote_system_capab
+        rem_entry_dict["remote_system_enable_capab"] = u"" + remote_enable_capab
 
         return rem_entry_dict
 
@@ -1647,9 +1647,9 @@ class DellOS10Driver(NetworkDriver):
         elem = interface.find(item)
         ret = u""
         if elem is not None:
-            ret = unicode(elem.text, "utf-8")
+            ret = elem.text
 
-        return ret
+        return py23_compat.text_type(ret)
 
     def _check_file_exists(self, cfg_file):
         """Check that the file exists on remote device using full path.
@@ -1700,7 +1700,8 @@ class DellOS10Driver(NetworkDriver):
             value = xml_data.find(xpath)
             if value is not None:
                 ret = value.text
-        return ret
+
+        return py23_compat.text_type(ret)
 
     @staticmethod
     def convert_int(value):
