@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rpc-reply>
+  <bulk>
+    <data>
+      <route>
+        <destination-prefix>1.1.0.0/16</destination-prefix>
+        <next-hop>
+          <address>0.0.0.0</address>
+          <nhop-intf>null0</nhop-intf>
+        </next-hop>
+        <source-protocol>static-route</source-protocol>
+        <last-updated>17593700</last-updated>
+        <is-active>true</is-active>
+      </route>
+      <route>
+        <destination-prefix>1.1.1.0/24</destination-prefix>
+        <next-hop>
+          <address>128.16.16.0</address>
+          <distance>1</distance>
+          <nhop-intf>loopback0</nhop-intf>
+        </next-hop>
+        <source-protocol>static-route</source-protocol>
+        <last-updated>1160800</last-updated>
+        <is-active>true</is-active>
+      </route>
+      <route>
+        <destination-prefix>128.16.16.0/24</destination-prefix>
+        <next-hop>
+          <address>128.16.16.1</address>
+          <nhop-intf>loopback0</nhop-intf>
+        </next-hop>
+        <source-protocol>connected-route</source-protocol>
+        <last-updated>17609900</last-updated>
+        <is-active>true</is-active>
+      </route>
+    </data>
+    <last-keys>
+      <destination-prefix>128.16.16.0/24</destination-prefix>
+    </last-keys>
+  </bulk>
+</rpc-reply>

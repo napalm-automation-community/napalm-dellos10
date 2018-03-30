@@ -8,11 +8,9 @@ python:
 - 2.7
 - 3.4
 - 3.5
-- 3.6
 install:
-- pip install -r requirements-dev.txt
-- pip install -r requirements.txt
-- pip install .
+- pip install tox-travis
+- pip install coveralls
 deploy:
   provider: pypi
   user: javeedf
@@ -21,5 +19,7 @@ deploy:
     tags: true
     branch: dellos10_device_support
 script:
-- py.test
-- pylama .
+- tox
+after_success:
+- coveralls
+- if [ $TRAVIS_TAG ]; then curl -X POST https://readthedocs.org/build/napalm; fi
