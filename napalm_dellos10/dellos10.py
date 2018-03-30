@@ -105,7 +105,7 @@ class DellOS10Driver(NetworkDriver):
 
         # Build dict of any optional Netmiko args
         self.netmiko_optional_args = {}
-        for key in netmiko_argument_map.iterkeys():
+        for key in netmiko_argument_map:
             try:
                 value = optional_args.get(key)
                 if value:
