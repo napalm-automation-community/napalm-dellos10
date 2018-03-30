@@ -1,0 +1,25 @@
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+sudo: false
+language: python
+python:
+- 2.7
+- 3.4
+- 3.5
+install:
+- pip install tox-travis
+- pip install coveralls
+deploy:
+  provider: pypi
+  user: javeedf
+  password: $PYPI_PASS
+  on:
+    tags: true
+    branch: dellos10_device_support
+script:
+- tox
+after_success:
+- coveralls
+- if [ $TRAVIS_TAG ]; then curl -X POST https://readthedocs.org/build/napalm; fi
