@@ -1,0 +1,3 @@
+snmp-server community test ro
+snmp-server contact http://www.dell.com/support
+snmp-server location Chennai
