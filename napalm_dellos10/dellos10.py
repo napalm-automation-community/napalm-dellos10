@@ -125,7 +125,7 @@ class DellOS10Driver(NetworkDriver):
 
     def open(self):
         """Open a connection to the device."""
-        device_type = 'dellos10'
+        device_type = 'dell_os10'
         self.device = ConnectHandler(device_type=device_type,
                                      host=self.hostname,
                                      username=self.username,
