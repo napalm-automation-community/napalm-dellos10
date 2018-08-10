@@ -26,12 +26,12 @@ try:
 except ImportError:
     import xml.etree.ElementTree as ET
 
-import napalm_base.constants as C
-from napalm_base.base import NetworkDriver
-from napalm_base.exceptions import (
+import napalm.base.constants as C
+from napalm.base.base import NetworkDriver
+from napalm.base.exceptions import (
     CommandErrorException, ConnectionClosedException,
     MergeConfigException, ReplaceConfigException)
-from napalm_base.utils import py23_compat
+from napalm.base.utils import py23_compat
 
 from napalm_dellos10.utils.config_diff_util import NetworkConfig, dumps
 
@@ -125,7 +125,7 @@ class DellOS10Driver(NetworkDriver):
 
     def open(self):
         """Open a connection to the device."""
-        device_type = 'dellos10'
+        device_type = 'dell_os10'
         self.device = ConnectHandler(device_type=device_type,
                                      host=self.hostname,
                                      username=self.username,
