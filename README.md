@@ -34,4 +34,5 @@ NAPALM driver for Dell EMC Networking OS10 Operating System.
 * rollback is not supported
 * load_replace_candidate not supported
 
-© 2018 Dell EMC
+© 2018 Dell Inc. or its subsidiaries. All Rights Reserved.
+
