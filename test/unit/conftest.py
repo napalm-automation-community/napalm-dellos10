@@ -2,9 +2,9 @@
 
 from builtins import super
 
-from napalm.base.base.test import conftest as parent_conftest
-from napalm.base.base.test.double import BaseTestDouble
-from napalm.base.base.utils import py23_compat
+from napalm.base.test import conftest as parent_conftest
+from napalm.base.test.double import BaseTestDouble
+from napalm.base.utils import py23_compat
 
 from napalm_dellos10 import dellos10
 

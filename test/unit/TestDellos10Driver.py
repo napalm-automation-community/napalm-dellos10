@@ -17,11 +17,11 @@
 import unittest
 from unittest import SkipTest
 
-from napalm.base.base.test import models
-from napalm.base.base.test.base import TestConfigNetworkDriver
-from napalm.base.base.test.base import TestGettersNetworkDriver
-from napalm.base.base.test.double import BaseTestDouble
-from napalm.base.base.utils import py23_compat
+from napalm.base.test import models
+from napalm.base.test.base import TestConfigNetworkDriver
+from napalm.base.test.base import TestGettersNetworkDriver
+from napalm.base.test.double import BaseTestDouble
+from napalm.base.utils import py23_compat
 
 from napalm_dellos10 import dellos10
 
