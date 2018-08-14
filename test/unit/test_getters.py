@@ -2,10 +2,10 @@
 
 import pytest
 
-from napalm_base.test.getters import BaseTestGetters
-from napalm_base.test.getters import wrap_test_cases
-from napalm_base.test import helpers
-from napalm_base.test import models
+from napalm.base.base.test.getters import BaseTestGetters
+from napalm.base.base.test.getters import wrap_test_cases
+from napalm.base.base.test import helpers
+from napalm.base.base.test import models
 
 
 @pytest.mark.usefixtures("set_device_parameters")
