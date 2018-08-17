@@ -489,13 +489,13 @@ class DellOS10Driver(NetworkDriver):
         cmd_inv = "show inventory | display-xml"
         output = self._send_command(cmd)
         output_inv = self._send_command(cmd_inv)
-        
+
         show_version_xml_data = self.convert_xml_data(output)
         show_inventory_xml_data = self.convert_xml_data(output_inv)
 
         version_base_path = "./data/system-sw-state/sw-version/"
         status_base_path = "./data/system-state/system-status/"
-        serial_number_base_path = "./data/system/node/mfg-info/"
+        serial_path = "./data/system/node/mfg-info/"
 
         os_version = self.parse_xml_data(show_version_xml_data,
                                          xpath=version_base_path+"sw-version")
@@ -506,18 +506,21 @@ class DellOS10Driver(NetworkDriver):
         uptime = self.parse_xml_data(show_version_xml_data,
                                      xpath=status_base_path + "uptime")
         serial_number = self.parse_xml_data(show_inventory_xml_data,
-                                     xpath=serial_number_base_path + "service-tag")                             
-
-        # to get interfaces list
-        output = self._send_command('show interface status | display-xml')
-        interfaces_xml_data = self.convert_xml_data(output)
+                                            xpath=serial_path + "service-tag")
 
         interface_list = []
 
-        for interface in interfaces_xml_data.findall(
-                './data/interfaces/interface'):
-            name = self.parse_item(interface, 'name')
-            interface_list.append(name)
+        cmd = 'show interface | display-xml'
+        interfaces_output = self._send_command(cmd)
+        interfaces_output_list = self._build_xml_list(interfaces_output)
+
+        for interfaces_output in interfaces_output_list:
+            if_xml_data = self.convert_xml_data(interfaces_output)
+
+            interface_state_xpath = "./bulk/data/interface"
+            for interface in if_xml_data.findall(interface_state_xpath):
+                name = self.parse_item(interface, 'name')
+                interface_list.append(name)
 
         ret = {
             'uptime': self.convert_int(uptime),

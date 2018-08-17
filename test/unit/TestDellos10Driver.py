@@ -45,7 +45,7 @@ class TestConfigDellos10Driver(unittest.TestCase, TestConfigNetworkDriver):
     @classmethod
     def setUpClass(cls):
         """Executed when the class is instantiated."""
-        ip_addr = '10.16.138.23'
+        ip_addr = '10.16.148.154'
         username = 'admin'
         password = 'admin'
         cls.vendor = 'dellos10'
