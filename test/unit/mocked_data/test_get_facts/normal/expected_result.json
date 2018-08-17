@@ -1,5 +1,5 @@
 {
   "os_version": "10.3.9999E", "uptime": 1925299,
-  "interface_list": ["ethernet1/1/1", "ethernet1/1/2", "ethernet1/1/3", "ethernet1/1/4", "ethernet1/1/5", "ethernet1/1/6", "ethernet1/1/7", "ethernet1/1/8", "ethernet1/1/9", "ethernet1/1/10", "ethernet1/1/11", "ethernet1/1/12", "ethernet1/1/13", "ethernet1/1/14", "ethernet1/1/15", "ethernet1/1/16", "ethernet1/1/17", "ethernet1/1/18", "ethernet1/1/19", "ethernet1/1/20", "ethernet1/1/21", "ethernet1/1/22", "ethernet1/1/23", "ethernet1/1/24", "ethernet1/1/25", "ethernet1/1/26", "ethernet1/1/27", "ethernet1/1/28", "ethernet1/1/29", "ethernet1/1/30", "ethernet1/1/31", "ethernet1/1/32"],
+  "interface_list": ["ethernet1/1/1", "ethernet1/1/2", "ethernet1/1/3", "ethernet1/1/4", "ethernet1/1/5", "ethernet1/1/6", "ethernet1/1/7", "ethernet1/1/8", "ethernet1/1/9", "ethernet1/1/10", "ethernet1/1/11", "ethernet1/1/12", "ethernet1/1/13", "ethernet1/1/14", "ethernet1/1/15", "ethernet1/1/16", "ethernet1/1/17", "ethernet1/1/18", "ethernet1/1/19", "ethernet1/1/20", "ethernet1/1/21", "ethernet1/1/22", "ethernet1/1/23", "ethernet1/1/24", "ethernet1/1/25", "ethernet1/1/26", "ethernet1/1/27", "ethernet1/1/28", "ethernet1/1/29", "ethernet1/1/30", "ethernet1/1/31", "ethernet1/1/32", "mgmt1/1/1", "vlan1", "vlan101", "null0"],
   "vendor": "Dell", "serial_number": "ACDB34EF", "model": "S6000-VM", "hostname": "OS10", "fqdn": "N/A"
 }
