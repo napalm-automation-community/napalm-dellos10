@@ -486,11 +486,16 @@ class DellOS10Driver(NetworkDriver):
         uptime = -1
         model, serial_number, fqdn, os_version, hostname = (self.UNKNOWN,) * 5
         cmd = "show version | display-xml"
+        cmd_inv = "show inventory | display-xml"
         output = self._send_command(cmd)
+        output_inv = self._send_command(cmd_inv)
+        
         show_version_xml_data = self.convert_xml_data(output)
+        show_inventory_xml_data = self.convert_xml_data(output_inv)
 
         version_base_path = "./data/system-sw-state/sw-version/"
         status_base_path = "./data/system-state/system-status/"
+        serial_number_base_path = "./data/system/node/mfg-info/"
 
         os_version = self.parse_xml_data(show_version_xml_data,
                                          xpath=version_base_path+"sw-version")
@@ -500,6 +505,8 @@ class DellOS10Driver(NetworkDriver):
                                        xpath=status_base_path + "hostname")
         uptime = self.parse_xml_data(show_version_xml_data,
                                      xpath=status_base_path + "uptime")
+        serial_number = self.parse_xml_data(show_inventory_xml_data,
+                                     xpath=serial_number_base_path + "service-tag")                             
 
         # to get interfaces list
         output = self._send_command('show interface status | display-xml')
