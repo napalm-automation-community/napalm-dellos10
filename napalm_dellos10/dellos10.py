@@ -508,16 +508,19 @@ class DellOS10Driver(NetworkDriver):
         serial_number = self.parse_xml_data(show_inventory_xml_data,
                                      xpath=serial_number_base_path + "service-tag")                             
 
-        # to get interfaces list
-        output = self._send_command('show interface status | display-xml')
-        interfaces_xml_data = self.convert_xml_data(output)
-
         interface_list = []
 
-        for interface in interfaces_xml_data.findall(
-                './data/interfaces/interface'):
-            name = self.parse_item(interface, 'name')
-            interface_list.append(name)
+        cmd = 'show interface | display-xml'
+        interfaces_output = self._send_command(cmd)
+        interfaces_output_list = self._build_xml_list(interfaces_output)
+
+        for interfaces_output in interfaces_output_list:
+            if_xml_data = self.convert_xml_data(interfaces_output)
+
+            interface_state_xpath = "./bulk/data/interface"
+            for interface in if_xml_data.findall(interface_state_xpath):
+                name = self.parse_item(interface, 'name')
+                interface_list.append(name)
 
         ret = {
             'uptime': self.convert_int(uptime),
