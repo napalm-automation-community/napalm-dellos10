@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rpc-reply>
+  <bulk>
+    <data>
+      <fwd-table>
+        <mac-addr>11:22:33:44:55:55</mac-addr>
+        <vlan>vlan25</vlan>
+        <entry-type>dynamic</entry-type>
+        <if-name>port-channel11</if-name>
+      </fwd-table>
+      <fwd-table>
+        <mac-addr>11:22:33:44:55:56</mac-addr>
+        <vlan>vlan24</vlan>
+        <entry-type>dynamic</entry-type>
+        <if-name>port-channel12</if-name>
+      </fwd-table>
+      <fwd-table>
+        <mac-addr>11:22:33:44:55:57</mac-addr>
+        <vlan>vlan23</vlan>
+        <entry-type>dynamic</entry-type>
+        <if-name>port-channel13</if-name>
+      </fwd-table>
+    <last-keys>
+      <entry-type>static</entry-type>
+      <mac-addr>11:22:33:44:55:59</mac-addr>
+      <vlan>vlan123</vlan>
+    </last-keys>
+    </data>
+  </bulk>
+</rpc-reply>
