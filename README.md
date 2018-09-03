@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/napalm-automation-community/napalm-dellos10.svg?branch=master)](https://travis-ci.org/napalm-automation-community/napalm-dellos10)
 [![PyPI](https://img.shields.io/pypi/v/napalm-dellos10.svg)](https://pypi.python.org/pypi/napalm-dellos10)
 [![Supported python versions](https://img.shields.io/pypi/pyversions/napalm-dellos10.svg)](https://pypi.python.org/pypi/napalm-dellos10/)
-[![Coverage Status](https://coveralls.io/repos/github/javeedf/napalm-dellos10/badge.svg?branch=master)](https://coveralls.io/github/javeedf/napalm-dellos10?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/napalm-automation-community/napalm-dellos10/badge.svg?branch=master)](https://coveralls.io/github/napalm-automation-community/napalm-dellos10)
 # napalm-dellos10
 
