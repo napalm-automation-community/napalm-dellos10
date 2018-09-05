@@ -27,10 +27,12 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Operating System :: POSIX :: Linux',
         'Operating System :: MacOS',
     ],
-    url="https://github.com/skg-net/napalm-dellos10",
+    url="https://github.com/napalm-automation-community/napalm-dellos10",
     include_package_data=True,
     install_requires=reqs,
 )
