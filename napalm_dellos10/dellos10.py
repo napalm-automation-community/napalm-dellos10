@@ -43,6 +43,7 @@ class DellOS10Driver(NetworkDriver):
 
     UNKNOWN = u"N/A"
     UNKNOWN_INT = int(-1)
+    UNKNOWN_FLOAT = float(-1)
     UNKNOWN_BOOL = bool("False")
 
     PROCEED_TO_REBOOT_MSG = "Proceed with upgrade and reboot"
@@ -758,36 +759,67 @@ class DellOS10Driver(NetworkDriver):
                         'speed': 100}}
         """
         # default values.
-        output = self._send_command('show interface status | display-xml')
-        interfaces_xml_data = self.convert_xml_data(output)
-
+        cmd = 'show interface | display-xml'
+        interfaces_output = self._send_command(cmd)
+        interfaces_output_list = self._build_xml_list(interfaces_output)
         interfaces_dict = {}
 
-        for interface in interfaces_xml_data.findall(
-                './data/interfaces/interface'):
-            intf = dict()
-            name = self.parse_item(interface, 'name')
-            intf['last_flapped'] = -1.0
-            intf['description'] = self.parse_item(interface, 'description')
-            admin_status = self.parse_item(interface, 'enabled')
-            intf['is_enabled'] = True if admin_status == "true" else False
+        for interfaces_output in interfaces_output_list:
+            if_xml_data = self.convert_xml_data(interfaces_output)
 
-            intf['mac_address'] = self.UNKNOWN
+            interface_state_xpath = "./bulk/data/interface"
+            for interface in if_xml_data.findall(interface_state_xpath):
+                intf = dict()
+                name = self.parse_item(interface, 'name')
+                last_flapped = self.parse_item(interface, 'last-change-time')
+                last_flapped = float(last_flapped) if last_flapped else -1.0
+                intf['last_flapped'] = last_flapped
 
-            interfaces_dict[name] = intf
+                intf['description'] = self.parse_item(interface, 'description')
 
-        for interface in interfaces_xml_data.findall(
-                './data/interfaces-state/interface'):
-            name = self.parse_item(interface, 'name')
-            intf = interfaces_dict[name]
-            oper_status = self.parse_item(interface, 'oper-status')
-            intf['is_up'] = False if oper_status == "down" else True
-            speed_val = self.parse_item(interface, 'speed')
-            intf['speed'] = self.convert_int(speed_val)
+                admin_status = self.parse_item(interface, 'admin-status')
+                intf['is_enabled'] = True if admin_status == "up" else False
 
-            interfaces_dict[name] = intf
+                intf['mac_address'] = self.parse_item(interface,
+                                                      'phys-address')
+
+                oper_status = self.parse_item(interface, 'oper-status')
+                intf['is_up'] = False if oper_status == "down" else True
+
+                speed_val = self.parse_item(interface, 'speed')
+                intf['speed'] = self.convert_int(speed_val)
+
+                interfaces_dict[name] = intf
 
         return interfaces_dict
+
+    def get_mac_address_table(self):
+        cmd = 'show mac address-table | display-xml'
+        lldp_neighbors_output = self._send_command(cmd)
+
+        routes_xml_data = self.convert_xml_data(lldp_neighbors_output)
+        base_xpath = "./bulk/data/fwd-table"
+        ret_mac_dict = []
+        mac_xml_list = routes_xml_data.findall(base_xpath)
+        for mac_xml in mac_xml_list:
+            mac_addr = self.parse_item(mac_xml, 'mac-addr')
+            # vlan id comes with "vlan123"
+            vlan_id_str = self.parse_item(mac_xml, 'vlan')
+            entry_type = self.parse_item(mac_xml, 'entry-type')
+            if_name = self.parse_item(mac_xml, 'if-name')
+            vlan_id = int(vlan_id_str[4:].strip())
+            mac_dict = {
+                "mac": mac_addr,
+                "interface": if_name,
+                "static": True if "static" == entry_type else False,
+                "active": True,
+                "vlan": vlan_id,
+                "moves": self.UNKNOWN_INT,
+                "last_move": self.UNKNOWN_FLOAT
+            }
+            ret_mac_dict.append(mac_dict)
+
+        return ret_mac_dict
 
     def get_route_to(self, destination=u'', protocol=u''):
         """To get routes.
@@ -884,53 +916,44 @@ class DellOS10Driver(NetworkDriver):
                                       u'10.65.0.1': {   'prefix_length': 24}}},
             u'Vlan200': {'ipv4': {u'10.63.176.57': {   'prefix_length': 29}}}}
         """
-        output = self._send_command('show ip interface brief | display-xml')
-        interfaces_xml_data = self.convert_xml_data(output)
+        cmd = 'show interface | display-xml'
+        ipv4_xpath = 'ipv4-info/addr'
+        ipv6_xpath = 'ipv6/global-addr'
+        interfaces_output = self._send_command(cmd)
+        interfaces_output_list = self._build_xml_list(interfaces_output)
+        ret_interfaces_dict = {}
+        print("in ip")
 
-        interfaces_dict = {}
-        interface_xpath = './data/interfaces/interface'
-        ipv4_xpath = 'ipv4/address/primary-addr'
-        interface_state_xpath = './data/interfaces-state/interface'
-        for interface in interfaces_xml_data.findall(interface_xpath):
-            name = self.parse_item(interface, 'name')
+        for interfaces_output in interfaces_output_list:
+            if_xml_data = self.convert_xml_data(interfaces_output)
 
-            ipv4_address_with_prefix = self.parse_item(interface, ipv4_xpath)
-            if not ipv4_address_with_prefix:
-                continue
+            interface_state_xpath = "./bulk/data/interface"
+            for interface in if_xml_data.findall(interface_state_xpath):
+                name = self.parse_item(interface, 'name')
+                interfaces_dict = {}
+                ipv4_address_with_prefix = self.parse_item(interface,
+                                                           ipv4_xpath)
+                if ipv4_address_with_prefix:
+                    ip_split_list = ipv4_address_with_prefix.split("/")
+                    ipv4 = ip_split_list[0]
+                    ipv4_prefix = self.convert_int(ip_split_list[1])
+                    interfaces_dict.update(
+                        {"ipv4": {ipv4: {'prefix_length': ipv4_prefix}}})
 
-            ip_split_list = ipv4_address_with_prefix.split("/")
-            ipv4 = ip_split_list[0]
-            ipv4_prefix = self.convert_int(ip_split_list[1])
+                ipv6_address_with_prefix = self.parse_item(interface,
+                                                           ipv6_xpath)
+                if ipv6_address_with_prefix:
+                    if "/" in ipv6_address_with_prefix:
+                        ipv6_split_list = ipv6_address_with_prefix.split("/")
+                        ipv6 = ipv6_split_list[0]
+                        ipv6_prefix = self.convert_int(ip_split_list[1])
+                        interfaces_dict.update(
+                            {"ipv6": {ipv6: {'prefix_length': ipv6_prefix}}})
 
-            interfaces_dict[name] = {
-                "ipv4": {ipv4: {'prefix_length': ipv4_prefix}}}
+                if interfaces_dict:
+                    ret_interfaces_dict[name] = interfaces_dict
 
-        ipv6_res = self._send_command(
-            'show ipv6 interface brief | display-xml')
-        ipv6_output_xml_data = self.convert_xml_data(ipv6_res)
-
-        for ipv6_entry in ipv6_output_xml_data.findall(interface_state_xpath):
-            name = self.parse_item(ipv6_entry, 'name')
-            ipv6_dict = {}
-
-            for ipv6_entry1 in ipv6_entry.iter('global-addr'):
-                ipv6_address_with_prefix = ipv6_entry1.text
-                if not ipv6_address_with_prefix:
-                    continue
-
-                if "/" in ipv6_address_with_prefix:
-                    ipv6_split_list = ipv6_address_with_prefix.split("/")
-                    ipv6 = ipv6_split_list[0]
-                    ipv6_prefix = self.convert_int(ip_split_list[1])
-
-                    ipv6_dict[ipv6] = {'prefix_length': ipv6_prefix}
-            if ipv6_dict:
-                ipv6_str_dict = {"ipv6": ipv6_dict}
-                if interfaces_dict.get(name):
-                    ipv6_str_dict.update(interfaces_dict[name])
-                interfaces_dict[name] = ipv6_str_dict
-
-        return interfaces_dict
+        return ret_interfaces_dict
 
     def get_bgp_config(self, group=u'', neighbor=u''):
         """To get BGP configuration.
