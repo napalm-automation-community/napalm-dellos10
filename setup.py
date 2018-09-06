@@ -17,7 +17,7 @@ reqs = [str(ir.req) for ir in install_reqs]
 
 setup(
     name="napalm-dellos10",
-    version="0.1.0",
+    version="1.0.6",
     packages=find_packages(),
     author="Senthil Kumar Ganesan, Mohamed Javeed",
     author_email="skg.dev.net@gmail.com, javeedf.dev@gmail.com",
