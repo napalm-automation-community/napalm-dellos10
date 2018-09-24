@@ -795,30 +795,30 @@ class DellOS10Driver(NetworkDriver):
 
     def get_mac_address_table(self):
         cmd = 'show mac address-table | display-xml'
-        lldp_neighbors_output = self._send_command(cmd)
-
-        routes_xml_data = self.convert_xml_data(lldp_neighbors_output)
-        base_xpath = "./bulk/data/fwd-table"
+        mac_table_output = self._send_command(cmd)
+        base_xpath = './bulk/data/fwd-table'
         ret_mac_dict = []
-        mac_xml_list = routes_xml_data.findall(base_xpath)
-        for mac_xml in mac_xml_list:
-            mac_addr = self.parse_item(mac_xml, 'mac-addr')
-            # vlan id comes with "vlan123"
-            vlan_id_str = self.parse_item(mac_xml, 'vlan')
-            entry_type = self.parse_item(mac_xml, 'entry-type')
-            if_name = self.parse_item(mac_xml, 'if-name')
-            vlan_id = int(vlan_id_str[4:].strip())
-            mac_dict = {
-                "mac": mac_addr,
-                "interface": if_name,
-                "static": True if "static" == entry_type else False,
-                "active": True,
-                "vlan": vlan_id,
-                "moves": self.UNKNOWN_INT,
-                "last_move": self.UNKNOWN_FLOAT
-            }
-            ret_mac_dict.append(mac_dict)
-
+        mac_table_output_list = self._build_xml_list(mac_table_output)
+        for output in mac_table_output_list:
+            mac_table_xml_data = self.convert_xml_data(output)
+            mac_xml_list = mac_table_xml_data.findall(base_xpath)
+            for mac_xml in mac_xml_list:
+                mac_addr = self.parse_item(mac_xml, 'mac-addr')
+                # vlan id comes with "vlan123"
+                vlan_id_str = self.parse_item(mac_xml, 'vlan')
+                entry_type = self.parse_item(mac_xml, 'entry-type')
+                if_name = self.parse_item(mac_xml, 'if-name')
+                vlan_id = int(vlan_id_str[4:].strip())
+                mac_dict = {
+                    "mac": mac_addr,
+                    "interface": if_name,
+                    "static": True if "static" == entry_type else False,
+                    "active": True,
+                    "vlan": vlan_id,
+                    "moves": self.UNKNOWN_INT,
+                    "last_move": self.UNKNOWN_FLOAT
+                }
+                ret_mac_dict.append(mac_dict)
         return ret_mac_dict
 
     def get_route_to(self, destination=u'', protocol=u''):
