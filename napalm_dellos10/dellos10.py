@@ -779,6 +779,7 @@ class DellOS10Driver(NetworkDriver):
 
                 admin_status = self.parse_item(interface, 'admin-status')
                 intf['is_enabled'] = True if admin_status == "up" else False
+<<<<<<< HEAD
 
                 intf['mac_address'] = self.parse_item(interface,
                                                       'phys-address')
@@ -789,12 +790,25 @@ class DellOS10Driver(NetworkDriver):
                 speed_val = self.parse_item(interface, 'speed')
                 intf['speed'] = self.convert_int(speed_val)
 
+=======
+
+                intf['mac_address'] = self.parse_item(interface,
+                                                      'phys-address')
+
+                oper_status = self.parse_item(interface, 'oper-status')
+                intf['is_up'] = False if oper_status == "down" else True
+
+                speed_val = self.parse_item(interface, 'speed')
+                intf['speed'] = self.convert_int(speed_val)
+
+>>>>>>> 7d44dc54d2b0274db798efecfe8c4ece138b6af2
                 interfaces_dict[name] = intf
 
         return interfaces_dict
 
     def get_mac_address_table(self):
         cmd = 'show mac address-table | display-xml'
+<<<<<<< HEAD
         mac_table_output = self._send_command(cmd)
         base_xpath = './bulk/data/fwd-table'
         ret_mac_dict = []
@@ -819,6 +833,32 @@ class DellOS10Driver(NetworkDriver):
                     "last_move": self.UNKNOWN_FLOAT
                 }
                 ret_mac_dict.append(mac_dict)
+=======
+        lldp_neighbors_output = self._send_command(cmd)
+
+        routes_xml_data = self.convert_xml_data(lldp_neighbors_output)
+        base_xpath = "./bulk/data/fwd-table"
+        ret_mac_dict = []
+        mac_xml_list = routes_xml_data.findall(base_xpath)
+        for mac_xml in mac_xml_list:
+            mac_addr = self.parse_item(mac_xml, 'mac-addr')
+            # vlan id comes with "vlan123"
+            vlan_id_str = self.parse_item(mac_xml, 'vlan')
+            entry_type = self.parse_item(mac_xml, 'entry-type')
+            if_name = self.parse_item(mac_xml, 'if-name')
+            vlan_id = int(vlan_id_str[4:].strip())
+            mac_dict = {
+                "mac": mac_addr,
+                "interface": if_name,
+                "static": True if "static" == entry_type else False,
+                "active": True,
+                "vlan": vlan_id,
+                "moves": self.UNKNOWN_INT,
+                "last_move": self.UNKNOWN_FLOAT
+            }
+            ret_mac_dict.append(mac_dict)
+
+>>>>>>> 7d44dc54d2b0274db798efecfe8c4ece138b6af2
         return ret_mac_dict
 
     def get_route_to(self, destination=u'', protocol=u''):
