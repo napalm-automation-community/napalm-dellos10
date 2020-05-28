@@ -59,14 +59,14 @@ class FakeDellOS10Device(BaseTestDouble):
         filename = '{}.txt'.format(self.sanitize_text(command))
         full_path = self.find_file(filename)
         result = self.read_txt_file(full_path)
-        return py23_compat.text_type(result)
+        return str(result)
 
     def send_command_expect(self, command):
         # cmd = re.sub(r'[\[\]\*\^\+\s\|/]', '_', command)
         filename = '{}.txt'.format(self.sanitize_text(command))
         full_path = self.find_file(filename)
         result = self.read_txt_file(full_path)
-        return py23_compat.text_type(result)
+        return str(result)
 
     def disconnect(self):
         pass
