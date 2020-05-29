@@ -21,7 +21,6 @@ from napalm.base.test import models
 from napalm.base.test.base import TestConfigNetworkDriver
 from napalm.base.test.base import TestGettersNetworkDriver
 from napalm.base.test.double import BaseTestDouble
-from napalm.base.utils import py23_compat
 
 from napalm_dellos10 import dellos10
 
@@ -153,7 +152,7 @@ class FakeDellOS10Device:
         file_path = 'dellos10/mock_data/{}.txt'.format(cmd)
         print("file_path :: " + file_path)
         output = self.read_txt_file(file_path)
-        return py23_compat.text_type(output)
+        return str(output)
 
     def send_command(self, command, **kwargs):
         """Fake execute a command in the device by just

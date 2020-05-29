@@ -30,8 +30,8 @@ import napalm.base.constants as C
 from napalm.base.base import NetworkDriver
 from napalm.base.exceptions import (
     CommandErrorException, ConnectionClosedException,
-    MergeConfigException, ReplaceConfigException)
-from napalm.base.utils import py23_compat
+    MergeConfigException, ReplaceConfigException
+    )
 
 from napalm_dellos10.utils.config_diff_util import NetworkConfig, dumps
 
@@ -171,7 +171,7 @@ class DellOS10Driver(NetworkDriver):
     def _create_tmp_file(config):
         """Write temp file and for use with inline config and SCP."""
         tmp_dir = tempfile.gettempdir()
-        rand_fname = py23_compat.text_type(uuid.uuid4())
+        rand_fname = str(uuid.uuid4())
         filename = os.path.join(tmp_dir, rand_fname)
         with open(filename, 'wt') as fobj:
             fobj.write(config)
@@ -526,10 +526,10 @@ class DellOS10Driver(NetworkDriver):
         ret = {
             'uptime': self.convert_int(uptime),
             'vendor': vendor,
-            'os_version': py23_compat.text_type(os_version),
-            'serial_number': py23_compat.text_type(serial_number),
-            'model': py23_compat.text_type(model),
-            'hostname': py23_compat.text_type(hostname),
+            'os_version': str(os_version),
+            'serial_number': str(serial_number),
+            'model': str(model),
+            'hostname': str(hostname),
             'fqdn': fqdn,
             'interface_list': interface_list
         }
@@ -644,7 +644,7 @@ class DellOS10Driver(NetworkDriver):
                     results_array = []
                     for data in range(probes_received):
                         results_array.append(
-                            {'ip_address': py23_compat.text_type(destination),
+                            {'ip_address': str(destination),
                              'rtt': 0.0
                             }
                         )
@@ -1682,7 +1682,7 @@ class DellOS10Driver(NetworkDriver):
         if elem is not None:
             ret = elem.text
 
-        return py23_compat.text_type(ret)
+        return str(ret)
 
     def _check_file_exists(self, cfg_file):
         """Check that the file exists on remote device using full path.
@@ -1734,7 +1734,7 @@ class DellOS10Driver(NetworkDriver):
             if value is not None:
                 ret = value.text
 
-        return py23_compat.text_type(ret)
+        return str(ret)
 
     @staticmethod
     def convert_int(value):
