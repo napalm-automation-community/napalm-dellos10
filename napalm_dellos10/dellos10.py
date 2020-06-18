@@ -536,6 +536,67 @@ class DellOS10Driver(NetworkDriver):
 
         return ret
 
+    def get_environment(self):
+        """Return a set of facts from the devices."""
+        ret = {
+            'fans': {},
+            'temperature': {},
+            'power': {},
+            'cpu': {
+                'system': {}
+            },
+            'memory': {},
+        }
+    
+        temp_output = self._send_command('show environment | display-xml')
+        temp_output_data = self.convert_xml_data(temp_output)
+        for sensor in temp_output_data.findall("./data/system/environment/thermal-sensor"):
+            name = self.parse_item(sensor, 'sensor-name')
+            temp = self.parse_item(sensor, 'sensor-temp')
+            ret['temperature'][name] = {
+                'temperature': float(temp),
+                'is_alert': False,
+                'is_critical': False,
+            }
+
+        system_output = self._send_command('show system | display-xml')
+        system_output_data = self.convert_xml_data(system_output)
+        for psu in system_output_data.findall("./data/system/node/power-supply"):
+            name = "Unit %d" % int(self.parse_item(psu, 'psu-id'))
+            status = self.parse_item(psu, 'status')
+            ret['power'][name] = {
+                'status': True if status == 'up' else False,
+                'capacity': -1.0,  # not implemented
+                'output': -1.0,    # not implemented
+            }
+        for fan in system_output_data.findall("./data/system/node/fan-tray"):
+            name = "Fan Tray %d" % int(self.parse_item(fan, 'fan-tray-id'))
+            status = self.parse_item(psu, 'status')
+            ret['fans'][name] = {
+                'status': True if status == 'up' else False
+            }
+
+        processes_output = self._send_command('show processes node-id 1')
+        memory_regexp = r'KiB Mem :\D*(\d+) total,\D*(\d+) free,\D*(\d+) used'
+        memory_output = re.search(memory_regexp, processes_output)
+        memory_total = int(memory_output.groups()[0])
+        memory_free = int(memory_output.groups()[1])
+        memory_used = int(memory_output.groups()[2])
+
+        ret['memory']['available_ram'] = memory_free
+        ret['memory']['used_ram'] = memory_used
+
+
+        
+        cpu_regexp = r'%Cpu\(s\):\s*([\d|\.]+) us,\s*([\d|\.]+) sy,\s*([\d|\.]+) ni,\s*([\d|\.]+) id,\s*([\d|\.]+) wa,\s*([\d|\.]+) hi,\s*([\d|\.]+) si,\s*([\d|\.]+) st'
+        cpu_output = re.search(cpu_regexp, processes_output)
+        cpu_idle = float(cpu_output.groups()[3])
+        cpu_usage = float(100.0 - cpu_idle)
+
+        ret['cpu']['system']['%usage'] = cpu_usage
+
+        return ret
+
     def cli(self, commands):
         """
         Execute a list of commands and return the output in a dictionary

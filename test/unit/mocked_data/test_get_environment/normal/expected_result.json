@@ -1,0 +1,94 @@
+{
+    "fans": {
+        "Fan Tray 1": {
+            "status": true
+        },
+        "Fan Tray 2": {
+            "status": true
+        },
+        "Fan Tray 3": {
+            "status": true
+        },
+        "Fan Tray 4": {
+            "status": true
+        }
+    },
+    "temperature": {
+        "CPU_temp": {
+            "temperature": 33.0,
+            "is_alert": false,
+            "is_critical": false
+        },
+        "NPU_Near_temp": {
+            "temperature": 38.0,
+            "is_alert": false,
+            "is_critical": false
+        },
+        "PT_Left_temp": {
+            "temperature": 28.0,
+            "is_alert": false,
+            "is_critical": false
+        },
+        "PT_Right_temp": {
+            "temperature": 29.0,
+            "is_alert": false,
+            "is_critical": false
+        },
+        "PT_Mid_temp": {
+            "temperature": 31.0,
+            "is_alert": false,
+            "is_critical": false
+        },
+        "ILET_AF_temp": {
+            "temperature": 29.0,
+            "is_alert": false,
+            "is_critical": false
+        },
+        "PSU1_temp": {
+            "temperature": 36.0,
+            "is_alert": false,
+            "is_critical": false
+        },
+        "PSU1_AF_temp": {
+            "temperature": 29.0,
+            "is_alert": false,
+            "is_critical": false
+        },
+        "PSU2_temp": {
+            "temperature": 36.0,
+            "is_alert": false,
+            "is_critical": false
+        },
+        "PSU2_AF_temp": {
+            "temperature": 30.0,
+            "is_alert": false,
+            "is_critical": false
+        },
+        "NPU temp sensor": {
+            "temperature": 51.0,
+            "is_alert": false,
+            "is_critical": false
+        }
+    },
+    "power": {
+        "Unit 1": {
+            "status": true,
+            "capacity": -1.0,
+            "output": -1.0
+        },
+        "Unit 2": {
+            "status": true,
+            "capacity": -1.0,
+            "output": -1.0
+        }
+    },
+    "cpu": {
+        "system": {
+            "%usage": 10.299999999999997
+        }
+    },
+    "memory": {
+        "available_ram": 12885300,
+        "used_ram": 2636032
+    }
+}
