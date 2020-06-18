@@ -1,0 +1,1 @@
+{"1.0.4.0/24": [{"protocol": "bgp-internal", "current_active": true, "last_active": false, "age": -1, "next_hop": "192.168.188.254", "outgoing_interface": "vlan1", "preference": -1, "selected_next_hop": true, "inactive_reason": "N/A", "routing_table": "N/A", "protocol_attributes": {}}]}

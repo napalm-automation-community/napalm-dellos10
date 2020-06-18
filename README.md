@@ -14,6 +14,7 @@ NAPALM driver for Dell EMC Networking OS10 Operating System.
 * commit_config
 * discard_config
 * get_facts
+* get_environment
 * get_config
 * ping
 * get_snmp_information

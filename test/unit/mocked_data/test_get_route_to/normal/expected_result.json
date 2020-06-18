@@ -1,3 +1,15 @@
 {
-  "13.1.1.0/24": [{"protocol": "bgp", "current_active": true, "last_active": false, "age": -1, "routing_table": "N/A", "next_hop": "11.1.1.2", "outgoing_interface": "", "preference": -1, "selected_next_hop": true, "protocol_attributes": {}, "inactive_reason": "N/A"}], "11.1.0.0/16": [{"protocol": "connected-route", "current_active": true, "last_active": false, "age": -1, "routing_table": "N/A", "next_hop": "11.1.1.1", "outgoing_interface": "ethernet1/1/2", "preference": -1, "selected_next_hop": true, "protocol_attributes": {}, "inactive_reason": "N/A"}], "12.1.1.0/24": [{"protocol": "connected-route", "current_active": true, "last_active": false, "age": -1, "routing_table": "N/A", "next_hop": "12.1.1.1", "outgoing_interface": "loopback0", "preference": -1, "selected_next_hop": true, "protocol_attributes": {}, "inactive_reason": "N/A"}]
+  "1.0.4.0/24": [{
+    "protocol": "bgp-internal",
+    "current_active": true,
+    "last_active": false,
+    "age": -1,
+    "next_hop": "192.168.188.254",
+    "outgoing_interface": "vlan1",
+    "preference": -1,
+    "selected_next_hop": true,
+    "inactive_reason": "N/A",
+    "routing_table": "N/A",
+    "protocol_attributes": {}
+  }]
 }

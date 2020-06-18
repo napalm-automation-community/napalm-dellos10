@@ -12,19 +12,6 @@ from napalm.base.test import models
 class TestGetter(BaseTestGetters):
     """Test get_* methods."""
 
-    @wrap_test_cases
-    def test_get_route_to(self, test_case):
-        """Test get_route_to."""
-        get_route_to = self.device.get_route_to()
-
-        assert len(get_route_to) > 0
-
-        for prefix, routes in get_route_to.items():
-            for route in routes:
-                assert helpers.test_model(models.route, route)
-
-        return get_route_to
-
     def test_method_signatures(self):
         try:
             super(TestGetter, self).test_method_signatures()
