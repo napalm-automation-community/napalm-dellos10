@@ -712,7 +712,7 @@ class DellOS10Driver(NetworkDriver):
                     ping_dict.update({'results': results_array})
         return {status: ping_dict}
 
-    def get_config(self, retrieve='all'):
+    def get_config(self, retrieve='all', sanitized=False):
         """To get_config for Dell OS10.
 
         Returns the startup or/and running configuration as dictionary.
@@ -850,6 +850,9 @@ class DellOS10Driver(NetworkDriver):
                 speed_val = self.parse_item(interface, 'speed')
                 intf['speed'] = self.convert_int(speed_val)
 
+                mtu_val = self.parse_item(interface, 'mtu')
+                intf['mtu'] = self.convert_int(mtu_val)
+
                 interfaces_dict[name] = intf
 
         return interfaces_dict
@@ -882,7 +885,7 @@ class DellOS10Driver(NetworkDriver):
                 ret_mac_dict.append(mac_dict)
         return ret_mac_dict
 
-    def get_route_to(self, destination=u'', protocol=u''):
+    def get_route_to(self, destination=u'', protocol=u'', longer=False):
         """To get routes.
 
         :param destination: The destination prefix to be used when
@@ -1649,8 +1652,8 @@ class DellOS10Driver(NetworkDriver):
                                                           remote_chassis_id,
                                                           remote_name,
                                                           remote_desc,
-                                                          remote_capab,
-                                                          remote_enable_cap)
+                                                          remote_capab.split(),
+                                                          remote_enable_cap.split())
 
                     lldp_rem_entry_list.append(entry_dict)
 
@@ -1664,8 +1667,8 @@ class DellOS10Driver(NetworkDriver):
                             remote_chassis_id,
                             remote_system_name,
                             remote_system_desc,
-                            remote_system_capab,
-                            remote_enable_capab):
+                            remote_system_capab = [],
+                            remote_enable_capab = []):
         rem_entry_dict = {}
         rem_entry_dict["parent_interface"] = self.UNKNOWN
         rem_entry_dict["remote_port"] = u"" + remote_port
@@ -1673,8 +1676,8 @@ class DellOS10Driver(NetworkDriver):
         rem_entry_dict["remote_chassis_id"] = u"" + remote_chassis_id
         rem_entry_dict["remote_system_name"] = u"" + remote_system_name
         rem_entry_dict["remote_system_description"] = u"" + remote_system_desc
-        rem_entry_dict["remote_system_capab"] = u"" + remote_system_capab
-        rem_entry_dict["remote_system_enable_capab"] = u"" + remote_enable_capab
+        rem_entry_dict["remote_system_capab"] = remote_system_capab
+        rem_entry_dict["remote_system_enable_capab"] = remote_enable_capab
 
         return rem_entry_dict
 
