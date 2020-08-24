@@ -477,7 +477,7 @@ class DellOS10Driver(NetworkDriver):
     def _gen_rollback_cfg(self):
         """Save a configuration that can be used for rollback."""
         cfg_file = self.rollback_cfg
-        cmd = 'copy running-config home://{}'.format(cfg_file)
+        cmd = 'copy running-configuration home://{}'.format(cfg_file)
         self.device.send_command_expect(cmd)
 
     def get_facts(self):
