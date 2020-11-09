@@ -404,10 +404,10 @@ class DellOS10Driver(NetworkDriver):
                     "Merge source config file does not exist")
             cmd = 'copy home://{} running-configuration'.format(filename)
             output = self._commit_hostname_handler(cmd)
-            if 'Invalid input detected' in output:
-                self.rollback()
+            if 'Invalid input detected' in output or 'Error' in output:
                 err_header = "Configuration merge failed; automatic " \
-                             "rollback attempted"
+                             "rollback not available, leaving in an " \
+                             "inconsistent state"
                 merge_error = "{0}:\n{1}".format(err_header, output)
                 raise MergeConfigException(merge_error)
 
