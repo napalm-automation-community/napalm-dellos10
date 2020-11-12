@@ -846,7 +846,10 @@ class DellOS10Driver(NetworkDriver):
                 intf['is_up'] = False if oper_status == "down" else True
 
                 speed_val = self.parse_item(interface, 'speed')
-                intf['speed'] = self.convert_int(speed_val)
+                speed_val_int = self.convert_int(speed_val)
+                if speed_val_int > 0:
+                    speed_val_int = int(speed_val_int / 1000000)
+                intf['speed'] = speed_val_int
 
                 mtu_val = self.parse_item(interface, 'mtu')
                 intf['mtu'] = self.convert_int(mtu_val)
