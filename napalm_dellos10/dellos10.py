@@ -987,7 +987,6 @@ class DellOS10Driver(NetworkDriver):
         interfaces_output = self._send_command(cmd)
         interfaces_output_list = self._build_xml_list(interfaces_output)
         ret_interfaces_dict = {}
-        print("in ip")
 
         for interfaces_output in interfaces_output_list:
             if_xml_data = self.convert_xml_data(interfaces_output)
@@ -1011,7 +1010,7 @@ class DellOS10Driver(NetworkDriver):
                     if "/" in ipv6_address_with_prefix:
                         ipv6_split_list = ipv6_address_with_prefix.split("/")
                         ipv6 = ipv6_split_list[0]
-                        ipv6_prefix = self.convert_int(ip_split_list[1])
+                        ipv6_prefix = self.convert_int(ipv6_split_list[1])
                         interfaces_dict.update(
                             {"ipv6": {ipv6: {'prefix_length': ipv6_prefix}}})
 

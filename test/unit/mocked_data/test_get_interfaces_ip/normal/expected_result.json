@@ -1,1 +1,21 @@
-{"mgmt1/1/1": {"ipv4": {"10.16.138.58": {"prefix_length": 24}}}, "ethernet1/1/1": {"ipv4": {"1.1.1.1": {"prefix_length": 24}}, "ipv6": {"2001:db8:1::1": {"prefix_length": 24}}}}
+{
+    "mgmt1/1/1": {
+        "ipv4": {
+            "10.16.138.58": {
+                "prefix_length": 24
+            }
+        }
+    },
+    "ethernet1/1/1": {
+        "ipv4": {
+            "1.1.1.1": {
+                "prefix_length": 24
+            }
+        },
+        "ipv6": {
+            "2001:db8:1::1": {
+                "prefix_length": 64
+            }
+        }
+    }
+}
