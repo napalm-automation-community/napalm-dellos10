@@ -577,11 +577,19 @@ class DellOS10Driver(NetworkDriver):
             }
 
         processes_output = self._send_command('show processes node-id 1')
-        memory_regexp = r'KiB Mem :\D*(\d+) total,\D*(\d+) free,\D*(\d+) used'
-        memory_output = re.search(memory_regexp, processes_output)
-        memory_total = int(memory_output.groups()[0])
-        memory_free = int(memory_output.groups()[1])
-        memory_used = int(memory_output.groups()[2])
+        memory_regexps = [
+            r'KiB Mem :\D*(?P<total>\d+) total,\D*(?P<free>\d+) free,\D*(?P<used>\d+) used',
+            r'KiB Mem :\D*(?P<total>\d+) total,\D*(?P<free>\d+) free,\D*(?P<used>\d+) used',
+        ]
+        for memory_regexp in memory_regexps:
+            memory_output = re.search(memory_regexp, processes_output)
+            if memory_output:
+                memory_free = int(regexp.groups("free"))
+                memory_used = int(regexp.groups("used"))
+                break
+        else:
+            memory_free = 0
+            memory_used = 0
 
         ret['memory']['available_ram'] = memory_free
         ret['memory']['used_ram'] = memory_used
