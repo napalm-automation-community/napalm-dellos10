@@ -585,8 +585,8 @@ class DellOS10Driver(NetworkDriver):
         for memory_regexp in memory_regexps:
             memory_output = re.search(memory_regexp, processes_output)
             if memory_output:
-                memory_free = int(regexp.groups("free"))
-                memory_used = int(regexp.groups("used"))
+                memory_free = int(memory_output.group("free"))
+                memory_used = int(memory_output.group("used"))
                 break
         else:
             memory_free = 0
