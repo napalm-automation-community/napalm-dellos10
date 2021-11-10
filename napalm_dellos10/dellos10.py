@@ -122,7 +122,8 @@ class DellOS10Driver(NetworkDriver):
         self.device = None
         self.config_replace = False
 
-        self.profile = ["dellos10"]
+        self.platform = "dellos10"
+        self.profile = [self.platform]
 
     def open(self):
         """Open a connection to the device."""
